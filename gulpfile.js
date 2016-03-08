@@ -91,13 +91,16 @@ gulp.task('serve', function() {
   var app = connect();
   var serveStatic = require('serve-static');
   var vhost = require('vhost');
-  var url = require('url');
   var proxy = require('proxy-middleware');
   var cors = require('cors');
+  var url = require('url');
+  var options = url.parse('http://proxy');
+
+  options.preserveHost = true;
 
   app.use(cors());
+  app.use(vhost('*.maclev.local', proxy(options)));
   app.use(serveStatic('www'));
-  app.use(vhost('api.maclev.local', proxy('http://api')));
 
   app.listen(80);
 });
