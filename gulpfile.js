@@ -9,6 +9,11 @@ var sourcemaps = require('gulp-sourcemaps');
 
 var watching = false;
 
+// Handle SIGTERM for PID 1
+process.on('SIGTERM', function() {
+  process.exit();
+});
+
 // Tasks
 gulp.task('default', ['watch', 'serve']);
 
