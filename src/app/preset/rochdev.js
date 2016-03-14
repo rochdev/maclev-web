@@ -18,7 +18,8 @@
         'visual-studio-code',
         'intellij-idea',
         'node',
-        'ruby'
+        'ruby',
+        'python'
       ],
 
       brewFormulas: [
