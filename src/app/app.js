@@ -47,10 +47,14 @@
         $location.search('ruby-versions', vm.rubyVersions.join(',') || null);
         $location.search('ruby-default', vm.rubyDefault || null);
         $location.search('ruby-gems', vm.rubyGems.join(',') || null);
+        $location.search('python-versions', vm.pythonVersions.join(',') || null);
+        $location.search('python-default', vm.pythonDefault || null);
+        $location.search('python-packages', vm.pythonPackages.join(',') || null);
       });
 
       watchVersions('node');
       watchVersions('ruby');
+      watchVersions('python');
 
       function loadUrl() {
         var search = $location.search();
@@ -64,6 +68,9 @@
         vm.rubyVersions = search['ruby-versions'] ? search['ruby-versions'].split(',') : [];
         vm.rubyGems = search['ruby-gems'] ? search['ruby-gems'].split(',') : [];
         vm.rubyDefault = search['ruby-default'] ? search['ruby-default'] : null;
+        vm.pythonVersions = search['python-versions'] ? search['python-versions'].split(',') : [];
+        vm.pythonPackages = search['python-packages'] ? search['python-packages'].split(',') : [];
+        vm.pythonDefault = search['python-default'] ? search['python-default'] : null;
       }
 
       function loadPreset(name) {
@@ -78,6 +85,9 @@
         vm.rubyVersions = current.rubyVersions;
         vm.rubyDefault = current.rubyDefault;
         vm.rubyGems = current.rubyGems;
+        vm.pythonVersions = current.pythonVersions;
+        vm.pythonDefault = current.pythonDefault;
+        vm.pythonPackages = current.pythonPackages;
       }
 
       function createLink() {
@@ -114,6 +124,17 @@
 
           if (vm.rubyGems.length) {
             parts.push('ruby-gems=' + vm.rubyGems.join(','));
+          }
+        }
+
+        if (vm.hasAddon('python')) {
+          if (vm.pythonVersions.length) {
+            parts.push('python-versions=' + vm.pythonVersions.join(','));
+            parts.push('python-default=' + vm.pythonDefault);
+          }
+
+          if (vm.pythonPackages.length) {
+            parts.push('python-packages=' + vm.pythonPackages.join(','));
           }
         }
 

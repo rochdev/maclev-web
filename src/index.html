@@ -150,6 +150,10 @@
             Node.js
           </md-checkbox>
 
+          <md-checkbox class="addon" ng-checked="vm.hasAddon('python')" ng-click="vm.toggle(vm.addons, 'python')">
+            Python
+          </md-checkbox>
+
           <md-checkbox class="addon" ng-checked="vm.hasAddon('ruby')" ng-click="vm.toggle(vm.addons, 'ruby')">
             Ruby
           </md-checkbox>
@@ -214,6 +218,30 @@
             source="{{api.url}}/search/gems"
             destination="vm.rubyGems"
             placeholder="Add a ruby gem"
+            min-items="1"></list-picker>
+        </addon-card>
+
+        <addon-card title="Python Versions" ng-if="vm.hasAddon('python')">
+          <list-picker
+            source="{{api.url}}/search/python"
+            destination="vm.pythonVersions"
+            placeholder="Add a python version"
+            min-items="1"></list-picker>
+
+          <md-input-container ng-if="vm.pythonVersions.length">
+            <label>Default version</label>
+
+            <md-select style="width: 200px;" ng-model="vm.pythonDefault" placeholder="Default version">
+              <md-option ng-value="version" ng-repeat="version in vm.pythonVersions track by version">{{::version}}</md-option>
+            </md-select>
+          </md-input-container>
+        </addon-card>
+
+        <addon-card title="Python Packages" ng-if="vm.hasAddon('python')">
+          <list-picker
+            source="{{api.url}}/search/pip"
+            destination="vm.pythonPackages"
+            placeholder="Add a python package"
             min-items="1"></list-picker>
         </addon-card>
       </addon-grid>

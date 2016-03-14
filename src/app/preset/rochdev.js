@@ -58,7 +58,13 @@
 
       rubyDefault: '2.3.0',
 
-      rubyGems: ['bundler']
+      rubyGems: ['bundler'],
+
+      pythonVersions: ['2.7.9', '3.5.1'],
+
+      pythonDefault: '3.5.1',
+
+      pythonPackages: ['awscli']
     });
   });
 })(angular.module('maclev'));

@@ -46,10 +46,13 @@
         brewCasks: (presets[name].brewCasks || []).slice(0),
         nodeModules: (presets[name].nodeModules || []).slice(0),
         nodeVersions: (presets[name].nodeVersions || []).slice(0),
-        nodeDefault: (presets[name].nodeDefault || []).slice(0),
+        nodeDefault: presets[name].nodeDefault || null,
         rubyGems: (presets[name].rubyGems || []).slice(0),
         rubyVersions: (presets[name].rubyVersions || []).slice(0),
-        rubyDefault: (presets[name].rubyDefault || []).slice(0)
+        rubyDefault: presets[name].rubyDefault || null,
+        pythonVersions: (presets[name].pythonVersions || []).slice(0),
+        pythonPackages: (presets[name].pythonPackages || []).slice(0),
+        pythonDefault: presets[name].pythonDefault || null
       };
     }
 
