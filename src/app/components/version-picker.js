@@ -19,7 +19,16 @@
         versions: '=',
         value: '='
       },
-      templateUrl: 'app/components/version-picker.html'
+      templateUrl: 'app/components/version-picker.html',
+      link: function(scope) {
+        scope.$watchCollection('versions', function(versions) {
+          if (versions.length === 0) {
+            scope.value = null;
+          } else if (!scope.value || versions.indexOf(scope.value) === -1) {
+            scope.value = versions[0];
+          }
+        });
+      }
     };
   }
 })(angular.module('maclev'));
