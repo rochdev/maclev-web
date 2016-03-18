@@ -12,14 +12,17 @@
         'opera',
         'docker',
         'github',
+        'sourcetree',
         'vagrant',
+        'vmware-fusion',
         'atom',
         'sublime-text',
         'visual-studio-code',
         'intellij-idea',
         'node',
         'ruby',
-        'python'
+        'python',
+        'java'
       ],
 
       brewFormulas: [
@@ -33,6 +36,10 @@
       ],
 
       brewCasks: [],
+
+      javaVersions: ['6', '7', '8', '9'],
+
+      javaDefault: '8',
 
       nodeVersions: ['v5', 'v4', 'v0.12', 'v0.10'],
 

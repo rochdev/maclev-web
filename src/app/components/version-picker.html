@@ -1,0 +1,7 @@
+<md-input-container ng-if="versions.length">
+  <label>Default version</label>
+
+  <md-select style="width: 200px;" ng-model="value" placeholder="Default version">
+    <md-option ng-value="version" ng-repeat="version in versions track by version">{{version}}</md-option>
+  </md-select>
+</md-input-container>

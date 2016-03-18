@@ -41,6 +41,8 @@
         $location.search('addons', vm.addons.join(',') || null);
         $location.search('brew-formulas', vm.brewFormulas.join(',') || null);
         $location.search('brew-casks', vm.brewCasks.join(',') || null);
+        $location.search('java-versions', vm.javaVersions.join(',') || null);
+        $location.search('java-default', vm.javaDefault || null);
         $location.search('node-versions', vm.nodeVersions.join(',') || null);
         $location.search('node-modules', vm.nodeModules.join(',') || null);
         $location.search('node-default', vm.nodeDefault || null);
@@ -52,6 +54,7 @@
         $location.search('python-packages', vm.pythonPackages.join(',') || null);
       });
 
+      watchVersions('java');
       watchVersions('node');
       watchVersions('ruby');
       watchVersions('python');
@@ -62,6 +65,8 @@
         vm.addons = search['addons'] ? search['addons'].split(',') : [];
         vm.brewFormulas = search['brew-formulas'] ? search['brew-formulas'].split(',') : [];
         vm.brewCasks = search['brew-casks'] ? search['brew-casks'].split(',') : [];
+        vm.javaVersions = search['java-versions'] ? search['java-versions'].split(',') : [];
+        vm.javaDefault = search['java-default'] ? search['java-default'] : null;
         vm.nodeVersions = search['node-versions'] ? search['node-versions'].split(',') : [];
         vm.nodeModules = search['node-modules'] ? search['node-modules'].split(',') : [];
         vm.nodeDefault = search['node-default'] ? search['node-default'] : null;
@@ -74,69 +79,26 @@
       }
 
       function loadPreset(name) {
-        var current = preset.get(name);
-
-        vm.addons = current.addons;
-        vm.brewFormulas = current.brewFormulas;
-        vm.brewCasks = current.brewCasks;
-        vm.nodeVersions = current.nodeVersions;
-        vm.nodeDefault = current.nodeDefault;
-        vm.nodeModules = current.nodeModules;
-        vm.rubyVersions = current.rubyVersions;
-        vm.rubyDefault = current.rubyDefault;
-        vm.rubyGems = current.rubyGems;
-        vm.pythonVersions = current.pythonVersions;
-        vm.pythonDefault = current.pythonDefault;
-        vm.pythonPackages = current.pythonPackages;
+        angular.extend(vm, preset.get(name));
       }
 
       function createLink() {
         var parts = [];
 
-        if (vm.addons.length) {
-          parts.push('addons=' + vm.addons.join(','));
-        }
-
-        if (vm.brewFormulas.length) {
-          parts.push('brew-formulas=' + vm.brewFormulas.join(','));
-        }
-
-        if (vm.brewCasks.length) {
-          parts.push('brew-casks=' + vm.brewCasks.join(','));
-        }
-
-        if (vm.hasAddon('node')) {
-          if (vm.nodeVersions.length) {
-            parts.push('node-versions=' + vm.nodeVersions.join(','));
-            parts.push('node-default=' + vm.nodeDefault);
-          }
-
-          if (vm.nodeModules.length) {
-            parts.push('node-modules=' + vm.nodeModules.join(','));
-          }
-        }
-
-        if (vm.hasAddon('ruby')) {
-          if (vm.rubyVersions.length) {
-            parts.push('ruby-versions=' + vm.rubyVersions.join(','));
-            parts.push('ruby-default=' + vm.rubyDefault);
-          }
-
-          if (vm.rubyGems.length) {
-            parts.push('ruby-gems=' + vm.rubyGems.join(','));
-          }
-        }
-
-        if (vm.hasAddon('python')) {
-          if (vm.pythonVersions.length) {
-            parts.push('python-versions=' + vm.pythonVersions.join(','));
-            parts.push('python-default=' + vm.pythonDefault);
-          }
-
-          if (vm.pythonPackages.length) {
-            parts.push('python-packages=' + vm.pythonPackages.join(','));
-          }
-        }
+        parts.push('addons=' + vm.addons.join(','));
+        parts.push('brew-formulas=' + vm.brewFormulas.join(','));
+        parts.push('brew-casks=' + vm.brewCasks.join(','));
+        parts.push('java-versions=' + vm.javaVersions.join(','));
+        parts.push('java-default=' + (vm.javaDefault || ''));
+        parts.push('node-versions=' + vm.nodeVersions.join(','));
+        parts.push('node-default=' + (vm.nodeDefault || ''));
+        parts.push('node-modules=' + vm.nodeModules.join(','));
+        parts.push('python-versions=' + vm.pythonVersions.join(','));
+        parts.push('python-default=' + (vm.pythonDefault || ''));
+        parts.push('python-packages=' + vm.pythonPackages.join(','));
+        parts.push('ruby-versions=' + vm.rubyVersions.join(','));
+        parts.push('ruby-default=' + (vm.rubyDefault || ''));
+        parts.push('ruby-gems=' + vm.rubyGems.join(','));
 
         return parts.join('&');
       }

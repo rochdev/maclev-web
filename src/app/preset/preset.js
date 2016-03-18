@@ -44,6 +44,8 @@
         addons: (presets[name].addons || []).slice(0),
         brewFormulas: (presets[name].brewFormulas || []).slice(0),
         brewCasks: (presets[name].brewCasks || []).slice(0),
+        javaVersions: (presets[name].javaVersions || []).slice(0),
+        javaDefault: presets[name].javaDefault || null,
         nodeModules: (presets[name].nodeModules || []).slice(0),
         nodeVersions: (presets[name].nodeVersions || []).slice(0),
         nodeDefault: presets[name].nodeDefault || null,

@@ -7,7 +7,8 @@
 
     <title>Maclev</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500" rel="stylesheet">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
 
     <!-- inject:css -->
@@ -38,7 +39,7 @@
       <md-button class="md-raised md-warn" ng-click="vm.loadPreset('clear')">clear</md-button>
       <md-button class="md-raised md-accent" ng-click="vm.loadPreset('rochdev')">rochdev</md-button>
 
-      <h1 class="md-title">Install</h1>
+      <h1 class="md-title">Applications</h1>
 
       <addon-grid>
         <addon-card title="Base">
@@ -56,107 +57,55 @@
         </addon-card>
 
         <addon-card title="Social">
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('discord')" ng-click="vm.toggle(vm.addons, 'discord')">
-            Discord
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('gitter')" ng-click="vm.toggle(vm.addons, 'gitter')">
-            Gitter
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('slack')" ng-click="vm.toggle(vm.addons, 'slack')">
-            Slack
-          </md-checkbox>
+          <list-checkbox list="vm.addons" value="discord">Discord</list-checkbox>
+          <list-checkbox list="vm.addons" value="gitter">Gitter</list-checkbox>
+          <list-checkbox list="vm.addons" value="slack">Slack</list-checkbox>
         </addon-card>
 
         <addon-card title="Browsers">
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('chrome')" ng-click="vm.toggle(vm.addons, 'chrome')">
-            Chrome
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('firefox')" ng-click="vm.toggle(vm.addons, 'firefox')">
-            Firefox
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('opera')" ng-click="vm.toggle(vm.addons, 'opera')">
-            Opera
-          </md-checkbox>
+          <list-checkbox list="vm.addons" value="chrome">Chrome</list-checkbox>
+          <list-checkbox list="vm.addons" value="firefox">Firefox</list-checkbox>
+          <list-checkbox list="vm.addons" value="opera">Opera</list-checkbox>
         </addon-card>
 
         <addon-card title="Text Editors">
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('atom')" ng-click="vm.toggle(vm.addons, 'atom')">
-            Atom
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('sublime-text')" ng-click="vm.toggle(vm.addons, 'sublime-text')">
-            Sublime Text
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('visual-studio-code')" ng-click="vm.toggle(vm.addons, 'visual-studio-code')">
-            Visual Studio Code
-          </md-checkbox>
+          <list-checkbox list="vm.addons" value="atom">Atom</list-checkbox>
+          <list-checkbox list="vm.addons" value="sublime-text">Sublime Text</list-checkbox>
+          <list-checkbox list="vm.addons" value="visual-studio-code">Visual Studio Code</list-checkbox>
         </addon-card>
 
         <addon-card title="IDEs">
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('appcode')" ng-click="vm.toggle(vm.addons, 'appcode')">
-            AppCode
-          </md-checkbox>
+          <list-checkbox list="vm.addons" value="appcode">AppCode</list-checkbox>
+          <list-checkbox list="vm.addons" value="datagrip">DataGrip</list-checkbox>
+          <list-checkbox list="vm.addons" value="intellij-idea">IntelliJ IDEA</list-checkbox>
+          <list-checkbox list="vm.addons" value="phpstorm">PhpStorm</list-checkbox>
+          <list-checkbox list="vm.addons" value="pycharm">PyCharm</list-checkbox>
+          <list-checkbox list="vm.addons" value="rubymine">RubyMine</list-checkbox>
+          <list-checkbox list="vm.addons" value="webstorm">WebStorm</list-checkbox>
+        </addon-card>
 
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('datagrip')" ng-click="vm.toggle(vm.addons, 'datagrip')">
-            DataGrip
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('intellij-idea')" ng-click="vm.toggle(vm.addons, 'intellij-idea')">
-            IntelliJ IDEA
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('phpstorm')" ng-click="vm.toggle(vm.addons, 'phpstorm')">
-            PhpStorm
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('pycharm')" ng-click="vm.toggle(vm.addons, 'pycharm')">
-            PyCharm
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('rubymine')" ng-click="vm.toggle(vm.addons, 'rubymine')">
-            RubyMine
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('webstorm')" ng-click="vm.toggle(vm.addons, 'webstorm')">
-            WebStorm
-          </md-checkbox>
+        <addon-card title="Virtualization">
+          <list-checkbox list="vm.addons" value="docker">Docker</list-checkbox>
+          <list-checkbox list="vm.addons" value="parallels-desktop">Parallels Desktop</list-checkbox>
+          <list-checkbox list="vm.addons" value="vmware-fusion">VMware Fusion</list-checkbox>
+          <list-checkbox list="vm.addons" value="vagrant">Vagrant</list-checkbox>
+          <list-checkbox list="vm.addons" value="virtualbox">VirtualBox</list-checkbox>
         </addon-card>
 
         <addon-card title="Tools">
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('docker')" ng-click="vm.toggle(vm.addons, 'docker')">
-            Docker Toolbox
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('github')" ng-click="vm.toggle(vm.addons, 'github')">
-            GitHub Desktop
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('vagrant')" ng-click="vm.toggle(vm.addons, 'vagrant')">
-            Vagrant
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('virtualbox') || vm.hasAddon('docker')" disabled>
-            VirtualBox
-          </md-checkbox>
+          <list-checkbox list="vm.addons" value="github">GitHub Desktop</list-checkbox>
+          <list-checkbox list="vm.addons" value="sourcetree">SourceTree</list-checkbox>
         </addon-card>
+      </addon-grid>
 
+      <h1 class="md-title">Environments</h1>
+
+      <addon-grid>
         <addon-card title="Languages">
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('node')" ng-click="vm.toggle(vm.addons, 'node')">
-            Node.js
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('python')" ng-click="vm.toggle(vm.addons, 'python')">
-            Python
-          </md-checkbox>
-
-          <md-checkbox class="addon" ng-checked="vm.hasAddon('ruby')" ng-click="vm.toggle(vm.addons, 'ruby')">
-            Ruby
-          </md-checkbox>
+          <list-checkbox list="vm.addons" value="java">Java</list-checkbox>
+          <list-checkbox list="vm.addons" value="node">Node.js</list-checkbox>
+          <list-checkbox list="vm.addons" value="python">Python</list-checkbox>
+          <list-checkbox list="vm.addons" value="ruby">Ruby</list-checkbox>
         </addon-card>
 
         <addon-card title="Brew Formulas">
@@ -175,19 +124,22 @@
             min-length="2"></list-picker>
         </addon-card>
 
+        <addon-card title="Java Versions" ng-if="vm.hasAddon('java')">
+          <list-checkbox list="vm.javaVersions" value="6">6</list-checkbox>
+          <list-checkbox list="vm.javaVersions" value="7">7</list-checkbox>
+          <list-checkbox list="vm.javaVersions" value="8">8</list-checkbox>
+          <list-checkbox list="vm.javaVersions" value="9">9 (beta)</list-checkbox>
+
+          <version-picker versions="vm.javaVersions" value="vm.javaDefault"></version-picker>
+        </addon-card>
+
         <addon-card title="Node Versions" ng-if="vm.hasAddon('node')">
           <list-picker
             source="{{api.url}}/search/node"
             destination="vm.nodeVersions"
             placeholder="Add a node version"></list-picker>
 
-          <md-input-container ng-if="vm.nodeVersions.length">
-            <label>Default version</label>
-
-            <md-select style="width: 200px;" ng-model="vm.nodeDefault" placeholder="Default version">
-              <md-option ng-value="version" ng-repeat="version in vm.nodeVersions track by version">{{::version}}</md-option>
-            </md-select>
-          </md-input-container>
+          <version-picker versions="vm.nodeVersions" value="vm.nodeDefault"></version-picker>
         </addon-card>
 
         <addon-card title="Node Modules" ng-if="vm.hasAddon('node')">
@@ -204,13 +156,7 @@
             placeholder="Add a ruby version"
             min-items="1"></list-picker>
 
-          <md-input-container ng-if="vm.rubyVersions.length">
-            <label>Default version</label>
-
-            <md-select style="width: 200px;" ng-model="vm.rubyDefault" placeholder="Default version">
-              <md-option ng-value="version" ng-repeat="version in vm.rubyVersions track by version">{{::version}}</md-option>
-            </md-select>
-          </md-input-container>
+          <version-picker versions="vm.rubyVersions" value="vm.rubyDefault"></version-picker>
         </addon-card>
 
         <addon-card title="Ruby Gems" ng-if="vm.hasAddon('ruby')">
@@ -228,13 +174,7 @@
             placeholder="Add a python version"
             min-items="1"></list-picker>
 
-          <md-input-container ng-if="vm.pythonVersions.length">
-            <label>Default version</label>
-
-            <md-select style="width: 200px;" ng-model="vm.pythonDefault" placeholder="Default version">
-              <md-option ng-value="version" ng-repeat="version in vm.pythonVersions track by version">{{::version}}</md-option>
-            </md-select>
-          </md-input-container>
+          <version-picker versions="vm.pythonVersions" value="vm.pythonDefault"></version-picker>
         </addon-card>
 
         <addon-card title="Python Packages" ng-if="vm.hasAddon('python')">
