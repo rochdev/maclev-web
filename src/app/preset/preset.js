@@ -41,7 +41,8 @@
 
     function get(name) {
       return {
-        addons: (presets[name].addons || []).slice(0),
+        applications: (presets[name].applications || []).slice(0),
+        environments: (presets[name].environments || []).slice(0),
         brewFormulas: (presets[name].brewFormulas || []).slice(0),
         brewCasks: (presets[name].brewCasks || []).slice(0),
         javaVersions: (presets[name].javaVersions || []).slice(0),

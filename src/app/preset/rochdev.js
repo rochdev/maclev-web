@@ -3,7 +3,7 @@
 
   module.config(function(presetProvider) {
     presetProvider.add('rochdev', {
-      addons: [
+      applications: [
         'discord',
         'gitter',
         'slack',
@@ -18,7 +18,10 @@
         'atom',
         'sublime-text',
         'visual-studio-code',
-        'intellij-idea',
+        'intellij-idea'
+      ],
+
+      environments: [
         'node',
         'ruby',
         'python',

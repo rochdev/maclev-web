@@ -53,45 +53,45 @@
 
       <addon-grid>
         <addon-card title="Social">
-          <list-checkbox list="vm.addons" value="discord">Discord</list-checkbox>
-          <list-checkbox list="vm.addons" value="gitter">Gitter</list-checkbox>
-          <list-checkbox list="vm.addons" value="slack">Slack</list-checkbox>
+          <list-checkbox list="vm.applications" value="discord">Discord</list-checkbox>
+          <list-checkbox list="vm.applications" value="gitter">Gitter</list-checkbox>
+          <list-checkbox list="vm.applications" value="slack">Slack</list-checkbox>
         </addon-card>
 
         <addon-card title="Browsers">
-          <list-checkbox list="vm.addons" value="chrome">Chrome</list-checkbox>
-          <list-checkbox list="vm.addons" value="firefox">Firefox</list-checkbox>
-          <list-checkbox list="vm.addons" value="opera">Opera</list-checkbox>
+          <list-checkbox list="vm.applications" value="chrome">Chrome</list-checkbox>
+          <list-checkbox list="vm.applications" value="firefox">Firefox</list-checkbox>
+          <list-checkbox list="vm.applications" value="opera">Opera</list-checkbox>
         </addon-card>
 
         <addon-card title="Text Editors">
-          <list-checkbox list="vm.addons" value="atom">Atom</list-checkbox>
-          <list-checkbox list="vm.addons" value="sublime-text">Sublime Text</list-checkbox>
-          <list-checkbox list="vm.addons" value="visual-studio-code">Visual Studio Code</list-checkbox>
+          <list-checkbox list="vm.applications" value="atom">Atom</list-checkbox>
+          <list-checkbox list="vm.applications" value="sublime-text">Sublime Text</list-checkbox>
+          <list-checkbox list="vm.applications" value="visual-studio-code">Visual Studio Code</list-checkbox>
         </addon-card>
 
         <addon-card title="IDEs">
-          <list-checkbox list="vm.addons" value="appcode">AppCode</list-checkbox>
-          <list-checkbox list="vm.addons" value="clion">CLion</list-checkbox>
-          <list-checkbox list="vm.addons" value="datagrip">DataGrip</list-checkbox>
-          <list-checkbox list="vm.addons" value="intellij-idea">IntelliJ IDEA</list-checkbox>
-          <list-checkbox list="vm.addons" value="phpstorm">PhpStorm</list-checkbox>
-          <list-checkbox list="vm.addons" value="pycharm">PyCharm</list-checkbox>
-          <list-checkbox list="vm.addons" value="rubymine">RubyMine</list-checkbox>
-          <list-checkbox list="vm.addons" value="webstorm">WebStorm</list-checkbox>
+          <list-checkbox list="vm.applications" value="appcode">AppCode</list-checkbox>
+          <list-checkbox list="vm.applications" value="clion">CLion</list-checkbox>
+          <list-checkbox list="vm.applications" value="datagrip">DataGrip</list-checkbox>
+          <list-checkbox list="vm.applications" value="intellij-idea">IntelliJ IDEA</list-checkbox>
+          <list-checkbox list="vm.applications" value="phpstorm">PhpStorm</list-checkbox>
+          <list-checkbox list="vm.applications" value="pycharm">PyCharm</list-checkbox>
+          <list-checkbox list="vm.applications" value="rubymine">RubyMine</list-checkbox>
+          <list-checkbox list="vm.applications" value="webstorm">WebStorm</list-checkbox>
         </addon-card>
 
         <addon-card title="Virtualization">
-          <list-checkbox list="vm.addons" value="docker">Docker</list-checkbox>
-          <list-checkbox list="vm.addons" value="parallels-desktop">Parallels Desktop</list-checkbox>
-          <list-checkbox list="vm.addons" value="vmware-fusion">VMware Fusion</list-checkbox>
-          <list-checkbox list="vm.addons" value="vagrant">Vagrant</list-checkbox>
-          <list-checkbox list="vm.addons" value="virtualbox">VirtualBox</list-checkbox>
+          <list-checkbox list="vm.applications" value="docker">Docker</list-checkbox>
+          <list-checkbox list="vm.applications" value="parallels-desktop">Parallels Desktop</list-checkbox>
+          <list-checkbox list="vm.applications" value="vmware-fusion">VMware Fusion</list-checkbox>
+          <list-checkbox list="vm.applications" value="vagrant">Vagrant</list-checkbox>
+          <list-checkbox list="vm.applications" value="virtualbox">VirtualBox</list-checkbox>
         </addon-card>
 
         <addon-card title="Tools">
-          <list-checkbox list="vm.addons" value="github">GitHub Desktop</list-checkbox>
-          <list-checkbox list="vm.addons" value="sourcetree">SourceTree</list-checkbox>
+          <list-checkbox list="vm.applications" value="github">GitHub Desktop</list-checkbox>
+          <list-checkbox list="vm.applications" value="sourcetree">SourceTree</list-checkbox>
         </addon-card>
       </addon-grid>
 
@@ -99,10 +99,10 @@
 
       <addon-grid>
         <addon-card title="Languages">
-          <list-checkbox list="vm.addons" value="java">Java</list-checkbox>
-          <list-checkbox list="vm.addons" value="node">Node.js</list-checkbox>
-          <list-checkbox list="vm.addons" value="python">Python</list-checkbox>
-          <list-checkbox list="vm.addons" value="ruby">Ruby</list-checkbox>
+          <list-checkbox list="vm.environments" value="java">Java</list-checkbox>
+          <list-checkbox list="vm.environments" value="node">Node.js</list-checkbox>
+          <list-checkbox list="vm.environments" value="python">Python</list-checkbox>
+          <list-checkbox list="vm.environments" value="ruby">Ruby</list-checkbox>
         </addon-card>
 
         <addon-card title="Brew Formulas">
@@ -121,7 +121,7 @@
             min-length="2"></list-picker>
         </addon-card>
 
-        <addon-card title="Java Versions" ng-if="vm.hasAddon('java')">
+        <addon-card title="Java Versions" ng-if="vm.hasEnvironment('java')">
           <list-checkbox list="vm.javaVersions" value="6">6</list-checkbox>
           <list-checkbox list="vm.javaVersions" value="7">7</list-checkbox>
           <list-checkbox list="vm.javaVersions" value="8">8</list-checkbox>
@@ -130,7 +130,7 @@
           <version-picker versions="vm.javaVersions" value="vm.javaDefault"></version-picker>
         </addon-card>
 
-        <addon-card title="Node Versions" ng-if="vm.hasAddon('node')">
+        <addon-card title="Node Versions" ng-if="vm.hasEnvironment('node')">
           <list-picker
             source="{{api.url}}/search/node"
             destination="vm.nodeVersions"
@@ -139,14 +139,14 @@
           <version-picker versions="vm.nodeVersions" value="vm.nodeDefault"></version-picker>
         </addon-card>
 
-        <addon-card title="Node Modules" ng-if="vm.hasAddon('node')">
+        <addon-card title="Node Modules" ng-if="vm.hasEnvironment('node')">
           <list-picker
             source="{{api.url}}/search/npm"
             destination="vm.nodeModules"
             placeholder="Add a node module"></list-picker>
         </addon-card>
 
-        <addon-card title="Ruby Versions" ng-if="vm.hasAddon('ruby')">
+        <addon-card title="Ruby Versions" ng-if="vm.hasEnvironment('ruby')">
           <list-picker
             source="{{api.url}}/search/ruby"
             destination="vm.rubyVersions"
@@ -156,7 +156,7 @@
           <version-picker versions="vm.rubyVersions" value="vm.rubyDefault"></version-picker>
         </addon-card>
 
-        <addon-card title="Ruby Gems" ng-if="vm.hasAddon('ruby')">
+        <addon-card title="Ruby Gems" ng-if="vm.hasEnvironment('ruby')">
           <list-picker
             source="{{api.url}}/search/gems"
             destination="vm.rubyGems"
@@ -164,7 +164,7 @@
             min-items="1"></list-picker>
         </addon-card>
 
-        <addon-card title="Python Versions" ng-if="vm.hasAddon('python')">
+        <addon-card title="Python Versions" ng-if="vm.hasEnvironment('python')">
           <list-picker
             source="{{api.url}}/search/python"
             destination="vm.pythonVersions"
@@ -174,7 +174,7 @@
           <version-picker versions="vm.pythonVersions" value="vm.pythonDefault"></version-picker>
         </addon-card>
 
-        <addon-card title="Python Packages" ng-if="vm.hasAddon('python')">
+        <addon-card title="Python Packages" ng-if="vm.hasEnvironment('python')">
           <list-picker
             source="{{api.url}}/search/pip"
             destination="vm.pythonPackages"

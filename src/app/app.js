@@ -32,7 +32,7 @@
       vm.loadUrl = loadUrl;
       vm.loadPreset = loadPreset;
       vm.createLink = createLink;
-      vm.hasAddon = hasAddon;
+      vm.hasEnvironment = hasEnvironment;
 
       vm.loadPreset('clear');
       vm.loadUrl();
@@ -82,8 +82,8 @@
         return parts.join('&');
       }
 
-      function hasAddon(name) {
-        return vm.addons.indexOf(name) !== -1;
+      function hasEnvironment(name) {
+        return vm.environments.indexOf(name) !== -1;
       }
 
       function kebabCase(str) {
