@@ -39,23 +39,19 @@
       <md-button class="md-raised md-warn" ng-click="vm.loadPreset('clear')">clear</md-button>
       <md-button class="md-raised md-accent" ng-click="vm.loadPreset('rochdev')">rochdev</md-button>
 
-      <h1 class="md-title">Applications</h1>
+      <h1 class="md-title">System</h1>
 
       <addon-grid>
         <addon-card title="Base">
-          <md-checkbox class="addon" disabled ng-checked="true">
-            Git
-          </md-checkbox>
-
-          <md-checkbox class="addon" disabled ng-checked="true">
-            Homebrew
-          </md-checkbox>
-
-          <md-checkbox class="addon" disabled ng-checked="true">
-            Xcode Command Line Tools
-          </md-checkbox>
+          <md-checkbox disabled ng-checked="true">Git</md-checkbox>
+          <md-checkbox disabled ng-checked="true">Homebrew</md-checkbox>
+          <md-checkbox disabled ng-checked="true">Xcode Command Line Tools</md-checkbox>
         </addon-card>
+      </addon-grid>
 
+      <h1 class="md-title">Applications</h1>
+
+      <addon-grid>
         <addon-card title="Social">
           <list-checkbox list="vm.addons" value="discord">Discord</list-checkbox>
           <list-checkbox list="vm.addons" value="gitter">Gitter</list-checkbox>
