@@ -47,6 +47,15 @@
           <md-checkbox disabled ng-checked="true">Homebrew</md-checkbox>
           <md-checkbox disabled ng-checked="true">Xcode Command Line Tools</md-checkbox>
         </addon-card>
+
+        <addon-card title="Shell">
+          <md-radio-group ng-model="vm.shell">
+            <md-radio-button>System Default (Bash 3.2)</md-radio-button>
+            <md-radio-button value="bash">Bash</md-radio-button>
+            <md-radio-button value="fish">Fish</md-radio-button>
+            <md-radio-button value="zsh">Zsh</md-radio-button>
+          </md-radio-group>
+        </addon-card>
       </addon-grid>
 
       <h1 class="md-title">Applications</h1>
@@ -82,7 +91,7 @@
         </addon-card>
 
         <addon-card title="Virtualization">
-          <list-checkbox list="vm.applications" value="docker">Docker</list-checkbox>
+          <list-checkbox list="vm.applications" value="docker">Docker Toolbox</list-checkbox>
           <list-checkbox list="vm.applications" value="parallels-desktop">Parallels Desktop</list-checkbox>
           <list-checkbox list="vm.applications" value="vmware-fusion">VMware Fusion</list-checkbox>
           <list-checkbox list="vm.applications" value="vagrant">Vagrant</list-checkbox>
@@ -91,6 +100,7 @@
 
         <addon-card title="Tools">
           <list-checkbox list="vm.applications" value="github">GitHub Desktop</list-checkbox>
+          <list-checkbox list="vm.applications" value="iterm2">iTerm2</list-checkbox>
           <list-checkbox list="vm.applications" value="sourcetree">SourceTree</list-checkbox>
         </addon-card>
       </addon-grid>
