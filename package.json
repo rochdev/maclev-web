@@ -17,6 +17,7 @@
     "url": "https://github.com/rochdev/maclev-web/issues"
   },
   "homepage": "https://github.com/rochdev/maclev-web#readme",
+  "private": true,
   "dependencies": {
     "connect": "^3.4.1",
     "cors": "^2.7.1",
