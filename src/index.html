@@ -9,190 +9,192 @@
 
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500">
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.css">
 
     <!-- inject:css -->
     <!-- endinject -->
   </head>
 
-  <body ng-class="{loaded: true}" ng-controller="AppController as vm">
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>
-          <span>Maclev</span>
-        </h2>
+  <body ng-class="{loaded: true}" ng-controller="AppController as vm" layout="column">
+    <div flex class="container">
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>
+            <span>Maclev</span>
+          </h2>
 
-        <span flex></span>
+          <span flex></span>
 
-        <md-button href="https://github.com/rochdev/maclev"
-                   title="GitHub"
-                   aria-label="GitHub"
-                   class="md-icon-button">
-          <md-icon md-svg-src="/content/icons/mark-github.svg"></md-icon>
-        </md-button>
-      </div>
-    </md-toolbar>
+          <md-button href="https://github.com/rochdev/maclev"
+                     title="GitHub"
+                     aria-label="GitHub"
+                     class="md-icon-button">
+            <md-icon md-svg-src="/content/icons/mark-github.svg"></md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
 
-    <main>
-      <h1 class="md-title">Presets</h1>
+      <main>
+        <h1 class="md-title">Presets</h1>
 
-      <md-button class="md-raised md-warn" ng-click="vm.loadPreset('clear')">clear</md-button>
-      <md-button class="md-raised md-accent" ng-click="vm.loadPreset('rochdev')">rochdev</md-button>
+        <md-button class="md-raised md-warn" ng-click="vm.loadPreset('clear')">clear</md-button>
+        <md-button class="md-raised md-accent" ng-click="vm.loadPreset('rochdev')">rochdev</md-button>
 
-      <h1 class="md-title">System</h1>
+        <h1 class="md-title">System</h1>
 
-      <addon-grid>
-        <addon-card title="Base">
-          <md-checkbox disabled ng-checked="true">Git</md-checkbox>
-          <md-checkbox disabled ng-checked="true">Homebrew</md-checkbox>
-          <md-checkbox disabled ng-checked="true">Xcode Command Line Tools</md-checkbox>
-        </addon-card>
+        <addon-grid>
+          <addon-card title="Base">
+            <md-checkbox disabled ng-checked="true">Git</md-checkbox>
+            <md-checkbox disabled ng-checked="true">Homebrew</md-checkbox>
+            <md-checkbox disabled ng-checked="true">Xcode Command Line Tools</md-checkbox>
+          </addon-card>
 
-        <addon-card title="Shell">
-          <md-radio-group ng-model="vm.shell">
-            <md-radio-button>System Default (Bash 3.2)</md-radio-button>
-            <md-radio-button value="bash">Bash</md-radio-button>
-            <md-radio-button value="fish">Fish</md-radio-button>
-            <md-radio-button value="zsh">Zsh</md-radio-button>
-          </md-radio-group>
-        </addon-card>
-      </addon-grid>
+          <addon-card title="Shell">
+            <md-radio-group ng-model="vm.shell">
+              <md-radio-button>System Default (Bash 3.2)</md-radio-button>
+              <md-radio-button value="bash">Bash</md-radio-button>
+              <md-radio-button value="fish">Fish</md-radio-button>
+              <md-radio-button value="zsh">Zsh</md-radio-button>
+            </md-radio-group>
+          </addon-card>
+        </addon-grid>
 
-      <h1 class="md-title">Applications</h1>
+        <h1 class="md-title">Applications</h1>
 
-      <addon-grid>
-        <addon-card title="Social">
-          <list-checkbox list="vm.applications" value="discord">Discord</list-checkbox>
-          <list-checkbox list="vm.applications" value="gitter">Gitter</list-checkbox>
-          <list-checkbox list="vm.applications" value="slack">Slack</list-checkbox>
-        </addon-card>
+        <addon-grid>
+          <addon-card title="Social">
+            <list-checkbox list="vm.applications" value="discord">Discord</list-checkbox>
+            <list-checkbox list="vm.applications" value="gitter">Gitter</list-checkbox>
+            <list-checkbox list="vm.applications" value="slack">Slack</list-checkbox>
+          </addon-card>
 
-        <addon-card title="Browsers">
-          <list-checkbox list="vm.applications" value="chrome">Chrome</list-checkbox>
-          <list-checkbox list="vm.applications" value="firefox">Firefox</list-checkbox>
-          <list-checkbox list="vm.applications" value="opera">Opera</list-checkbox>
-        </addon-card>
+          <addon-card title="Browsers">
+            <list-checkbox list="vm.applications" value="chrome">Chrome</list-checkbox>
+            <list-checkbox list="vm.applications" value="firefox">Firefox</list-checkbox>
+            <list-checkbox list="vm.applications" value="opera">Opera</list-checkbox>
+          </addon-card>
 
-        <addon-card title="Text Editors">
-          <list-checkbox list="vm.applications" value="atom">Atom</list-checkbox>
-          <list-checkbox list="vm.applications" value="sublime-text">Sublime Text</list-checkbox>
-          <list-checkbox list="vm.applications" value="visual-studio-code">Visual Studio Code</list-checkbox>
-        </addon-card>
+          <addon-card title="Text Editors">
+            <list-checkbox list="vm.applications" value="atom">Atom</list-checkbox>
+            <list-checkbox list="vm.applications" value="sublime-text">Sublime Text</list-checkbox>
+            <list-checkbox list="vm.applications" value="visual-studio-code">Visual Studio Code</list-checkbox>
+          </addon-card>
 
-        <addon-card title="IDEs">
-          <list-checkbox list="vm.applications" value="appcode">AppCode</list-checkbox>
-          <list-checkbox list="vm.applications" value="clion">CLion</list-checkbox>
-          <list-checkbox list="vm.applications" value="datagrip">DataGrip</list-checkbox>
-          <list-checkbox list="vm.applications" value="intellij-idea">IntelliJ IDEA</list-checkbox>
-          <list-checkbox list="vm.applications" value="phpstorm">PhpStorm</list-checkbox>
-          <list-checkbox list="vm.applications" value="pycharm">PyCharm</list-checkbox>
-          <list-checkbox list="vm.applications" value="rubymine">RubyMine</list-checkbox>
-          <list-checkbox list="vm.applications" value="webstorm">WebStorm</list-checkbox>
-        </addon-card>
+          <addon-card title="IDEs">
+            <list-checkbox list="vm.applications" value="appcode">AppCode</list-checkbox>
+            <list-checkbox list="vm.applications" value="clion">CLion</list-checkbox>
+            <list-checkbox list="vm.applications" value="datagrip">DataGrip</list-checkbox>
+            <list-checkbox list="vm.applications" value="intellij-idea">IntelliJ IDEA</list-checkbox>
+            <list-checkbox list="vm.applications" value="phpstorm">PhpStorm</list-checkbox>
+            <list-checkbox list="vm.applications" value="pycharm">PyCharm</list-checkbox>
+            <list-checkbox list="vm.applications" value="rubymine">RubyMine</list-checkbox>
+            <list-checkbox list="vm.applications" value="webstorm">WebStorm</list-checkbox>
+          </addon-card>
 
-        <addon-card title="Virtualization">
-          <list-checkbox list="vm.applications" value="docker">Docker Toolbox</list-checkbox>
-          <list-checkbox list="vm.applications" value="parallels-desktop">Parallels Desktop</list-checkbox>
-          <list-checkbox list="vm.applications" value="vmware-fusion">VMware Fusion</list-checkbox>
-          <list-checkbox list="vm.applications" value="vagrant">Vagrant</list-checkbox>
-          <list-checkbox list="vm.applications" value="virtualbox">VirtualBox</list-checkbox>
-        </addon-card>
+          <addon-card title="Virtualization">
+            <list-checkbox list="vm.applications" value="docker">Docker Toolbox</list-checkbox>
+            <list-checkbox list="vm.applications" value="parallels-desktop">Parallels Desktop</list-checkbox>
+            <list-checkbox list="vm.applications" value="vmware-fusion">VMware Fusion</list-checkbox>
+            <list-checkbox list="vm.applications" value="vagrant">Vagrant</list-checkbox>
+            <list-checkbox list="vm.applications" value="virtualbox">VirtualBox</list-checkbox>
+          </addon-card>
 
-        <addon-card title="Tools">
-          <list-checkbox list="vm.applications" value="github">GitHub Desktop</list-checkbox>
-          <list-checkbox list="vm.applications" value="iterm2">iTerm2</list-checkbox>
-          <list-checkbox list="vm.applications" value="sourcetree">SourceTree</list-checkbox>
-        </addon-card>
-      </addon-grid>
+          <addon-card title="Tools">
+            <list-checkbox list="vm.applications" value="github">GitHub Desktop</list-checkbox>
+            <list-checkbox list="vm.applications" value="iterm2">iTerm2</list-checkbox>
+            <list-checkbox list="vm.applications" value="sourcetree">SourceTree</list-checkbox>
+          </addon-card>
+        </addon-grid>
 
-      <h1 class="md-title">Environments</h1>
+        <h1 class="md-title">Environments</h1>
 
-      <addon-grid>
-        <addon-card title="Languages">
-          <list-checkbox list="vm.environments" value="java">Java</list-checkbox>
-          <list-checkbox list="vm.environments" value="node">Node.js</list-checkbox>
-          <list-checkbox list="vm.environments" value="python">Python</list-checkbox>
-          <list-checkbox list="vm.environments" value="ruby">Ruby</list-checkbox>
-        </addon-card>
+        <addon-grid>
+          <addon-card title="Languages">
+            <list-checkbox list="vm.environments" value="java">Java</list-checkbox>
+            <list-checkbox list="vm.environments" value="node">Node.js</list-checkbox>
+            <list-checkbox list="vm.environments" value="python">Python</list-checkbox>
+            <list-checkbox list="vm.environments" value="ruby">Ruby</list-checkbox>
+          </addon-card>
 
-        <addon-card title="Brew Formulas">
-          <list-picker
-            source="{{api.url}}/search/brew"
-            destination="vm.brewFormulas"
-            placeholder="Add a homebrew formula"
-            min-length="2"></list-picker>
-        </addon-card>
+          <addon-card title="Brew Formulas">
+            <list-picker
+              source="{{api.url}}/search/brew"
+              destination="vm.brewFormulas"
+              placeholder="Add a homebrew formula"
+              min-length="2"></list-picker>
+          </addon-card>
 
-        <addon-card title="Brew Casks">
-          <list-picker
-            source="{{api.url}}/search/cask"
-            destination="vm.brewCasks"
-            placeholder="Add a homebrew cask"
-            min-length="2"></list-picker>
-        </addon-card>
+          <addon-card title="Brew Casks">
+            <list-picker
+              source="{{api.url}}/search/cask"
+              destination="vm.brewCasks"
+              placeholder="Add a homebrew cask"
+              min-length="2"></list-picker>
+          </addon-card>
 
-        <addon-card title="Java Versions" ng-if="vm.hasEnvironment('java')">
-          <list-checkbox list="vm.javaVersions" value="6">6</list-checkbox>
-          <list-checkbox list="vm.javaVersions" value="7">7</list-checkbox>
-          <list-checkbox list="vm.javaVersions" value="8">8</list-checkbox>
-          <list-checkbox list="vm.javaVersions" value="9">9 (beta)</list-checkbox>
+          <addon-card title="Java Versions" ng-if="vm.hasEnvironment('java')">
+            <list-checkbox list="vm.javaVersions" value="6">6</list-checkbox>
+            <list-checkbox list="vm.javaVersions" value="7">7</list-checkbox>
+            <list-checkbox list="vm.javaVersions" value="8">8</list-checkbox>
+            <list-checkbox list="vm.javaVersions" value="9">9 (beta)</list-checkbox>
 
-          <version-picker versions="vm.javaVersions" value="vm.javaDefault"></version-picker>
-        </addon-card>
+            <version-picker versions="vm.javaVersions" value="vm.javaDefault"></version-picker>
+          </addon-card>
 
-        <addon-card title="Node Versions" ng-if="vm.hasEnvironment('node')">
-          <list-picker
-            source="{{api.url}}/search/node"
-            destination="vm.nodeVersions"
-            placeholder="Add a node version"></list-picker>
+          <addon-card title="Node Versions" ng-if="vm.hasEnvironment('node')">
+            <list-picker
+              source="{{api.url}}/search/node"
+              destination="vm.nodeVersions"
+              placeholder="Add a node version"></list-picker>
 
-          <version-picker versions="vm.nodeVersions" value="vm.nodeDefault"></version-picker>
-        </addon-card>
+            <version-picker versions="vm.nodeVersions" value="vm.nodeDefault"></version-picker>
+          </addon-card>
 
-        <addon-card title="Node Modules" ng-if="vm.hasEnvironment('node')">
-          <list-picker
-            source="{{api.url}}/search/npm"
-            destination="vm.nodeModules"
-            placeholder="Add a node module"></list-picker>
-        </addon-card>
+          <addon-card title="Node Modules" ng-if="vm.hasEnvironment('node')">
+            <list-picker
+              source="{{api.url}}/search/npm"
+              destination="vm.nodeModules"
+              placeholder="Add a node module"></list-picker>
+          </addon-card>
 
-        <addon-card title="Ruby Versions" ng-if="vm.hasEnvironment('ruby')">
-          <list-picker
-            source="{{api.url}}/search/ruby"
-            destination="vm.rubyVersions"
-            placeholder="Add a ruby version"
-            min-items="1"></list-picker>
+          <addon-card title="Ruby Versions" ng-if="vm.hasEnvironment('ruby')">
+            <list-picker
+              source="{{api.url}}/search/ruby"
+              destination="vm.rubyVersions"
+              placeholder="Add a ruby version"
+              min-items="1"></list-picker>
 
-          <version-picker versions="vm.rubyVersions" value="vm.rubyDefault"></version-picker>
-        </addon-card>
+            <version-picker versions="vm.rubyVersions" value="vm.rubyDefault"></version-picker>
+          </addon-card>
 
-        <addon-card title="Ruby Gems" ng-if="vm.hasEnvironment('ruby')">
-          <list-picker
-            source="{{api.url}}/search/gems"
-            destination="vm.rubyGems"
-            placeholder="Add a ruby gem"
-            min-items="1"></list-picker>
-        </addon-card>
+          <addon-card title="Ruby Gems" ng-if="vm.hasEnvironment('ruby')">
+            <list-picker
+              source="{{api.url}}/search/gems"
+              destination="vm.rubyGems"
+              placeholder="Add a ruby gem"
+              min-items="1"></list-picker>
+          </addon-card>
 
-        <addon-card title="Python Versions" ng-if="vm.hasEnvironment('python')">
-          <list-picker
-            source="{{api.url}}/search/python"
-            destination="vm.pythonVersions"
-            placeholder="Add a python version"
-            min-items="1"></list-picker>
+          <addon-card title="Python Versions" ng-if="vm.hasEnvironment('python')">
+            <list-picker
+              source="{{api.url}}/search/python"
+              destination="vm.pythonVersions"
+              placeholder="Add a python version"
+              min-items="1"></list-picker>
 
-          <version-picker versions="vm.pythonVersions" value="vm.pythonDefault"></version-picker>
-        </addon-card>
+            <version-picker versions="vm.pythonVersions" value="vm.pythonDefault"></version-picker>
+          </addon-card>
 
-        <addon-card title="Python Packages" ng-if="vm.hasEnvironment('python')">
-          <list-picker
-            source="{{api.url}}/search/pip"
-            destination="vm.pythonPackages"
-            placeholder="Add a python package"
-            min-items="1"></list-picker>
-        </addon-card>
-      </addon-grid>
-    </main>
+          <addon-card title="Python Packages" ng-if="vm.hasEnvironment('python')">
+            <list-picker
+              source="{{api.url}}/search/pip"
+              destination="vm.pythonPackages"
+              placeholder="Add a python package"
+              min-items="1"></list-picker>
+          </addon-card>
+        </addon-grid>
+      </main>
+    </div>
 
     <md-button class="md-fab md-accent download"
                aria-label="Download"
@@ -209,7 +211,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-messages.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
 
     <!-- inject:js -->
