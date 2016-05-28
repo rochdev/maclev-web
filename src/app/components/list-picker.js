@@ -1,57 +1,60 @@
 (function(module) {
   'use strict';
 
-  module.directive('listPicker', listPickerDirective);
+  module.component('listPicker', {
+    templateUrl: 'app/components/list-picker.html',
+    bindings: {
+      source: '@',
+      destination: '=',
+      placeholder: '@',
+      minLength: '@'
+    },
+    controller: ListPickerController
+  });
 
-  /**
-   * @ngdoc directive
-   * @name listPicker
-   * @restrict E
-   * @module maclev
-   *
-   * @description
-   * The `autocomplete` directive.
-   */
-  function listPickerDirective($http) {
-    return {
-      restrict: 'E',
-      scope: {
-        source: '@',
-        destination: '=',
-        placeholder: '@',
-        minLength: '@'
-      },
-      templateUrl: 'app/components/list-picker.html',
-      link: function postLink(scope) {
-        scope.add = add;
-        scope.remove = remove;
-        scope.query = query;
-        scope.searchText = '';
+  function ListPickerController($http, $timeout, $element) {
+    var $ctrl = this;
 
-        function add(name) {
-          if (name && scope.destination.indexOf(name) === -1) {
-            scope.destination.push(name);
-          }
-        }
+    $ctrl.add = add;
+    $ctrl.remove = remove;
+    $ctrl.query = query;
+    $ctrl.onEnter = onEnter;
+    $ctrl.searchText = '';
 
-        function remove(name) {
-          var index = scope.destination.indexOf(name);
+    function onEnter() {
+      !$ctrl.selectedItem && $ctrl.searchText && add($ctrl.searchText);
+    }
 
-          if (index !== -1) {
-            scope.destination.splice(index, 1);
-          }
-        }
+    function add(name) {
+      var $mdAutocompleteCtrl = $element.find('md-autocomplete').scope().$$childHead.$mdAutocompleteCtrl;
 
-        function query(searchText) {
-          return $http.get(scope.source, {
-            params: {
-              query: searchText
-            }
-          }).then(function(response) {
-            return response.data;
-          });
-        }
+      if (name && $ctrl.destination.indexOf(name) === -1) {
+        $ctrl.destination.push(name);
       }
-    };
+
+      $ctrl.searchText = '';
+
+      $timeout(function() {
+        $mdAutocompleteCtrl.hidden = true;
+      });
+    }
+
+    function remove(name) {
+      var index = $ctrl.destination.indexOf(name);
+
+      if (index !== -1) {
+        $ctrl.destination.splice(index, 1);
+      }
+    }
+
+    function query(searchText) {
+      return $http.get($ctrl.source, {
+        params: {
+          query: searchText
+        }
+      }).then(function(response) {
+        return response.data;
+      });
+    }
   }
 })(angular.module('maclev'));
