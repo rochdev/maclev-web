@@ -26,6 +26,7 @@
         scope.add = add;
         scope.remove = remove;
         scope.query = query;
+        scope.searchText = '';
 
         function add(name) {
           if (name && scope.destination.indexOf(name) === -1) {
