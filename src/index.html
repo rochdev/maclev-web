@@ -72,6 +72,7 @@
             <list-checkbox list="vm.applications" value="chrome">Chrome</list-checkbox>
             <list-checkbox list="vm.applications" value="firefox">Firefox</list-checkbox>
             <list-checkbox list="vm.applications" value="opera">Opera</list-checkbox>
+            <list-checkbox list="vm.applications" value="vivaldi">Vivaldi</list-checkbox>
           </addon-card>
 
           <addon-card title="Text Editors">
@@ -99,10 +100,15 @@
             <list-checkbox list="vm.applications" value="virtualbox">VirtualBox</list-checkbox>
           </addon-card>
 
-          <addon-card title="Tools">
+          <addon-card title="Version Control">
             <list-checkbox list="vm.applications" value="github">GitHub Desktop</list-checkbox>
-            <list-checkbox list="vm.applications" value="iterm2">iTerm2</list-checkbox>
+            <list-checkbox list="vm.applications" value="gitkraken">GitKraken</list-checkbox>
             <list-checkbox list="vm.applications" value="sourcetree">SourceTree</list-checkbox>
+          </addon-card>
+
+          <addon-card title="Tools">
+            <list-checkbox list="vm.applications" value="github">Alfred</list-checkbox>
+            <list-checkbox list="vm.applications" value="iterm2">iTerm2</list-checkbox>
           </addon-card>
         </addon-grid>
 
@@ -139,6 +145,12 @@
             <list-checkbox list="vm.javaVersions" value="9">9 (beta)</list-checkbox>
 
             <version-picker versions="vm.javaVersions" value="vm.javaDefault"></version-picker>
+          </addon-card>
+
+          <addon-card title="Java Build Tools" ng-if="vm.hasEnvironment('java')">
+            <list-checkbox list="vm.javaBuildTools" value="ant">Ant</list-checkbox>
+            <list-checkbox list="vm.javaBuildTools" value="gradle">Gradle</list-checkbox>
+            <list-checkbox list="vm.javaBuildTools" value="maven">Maven</list-checkbox>
           </addon-card>
 
           <addon-card title="Node Versions" ng-if="vm.hasEnvironment('node')">

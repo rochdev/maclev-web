@@ -44,6 +44,8 @@
 
       javaDefault: '8',
 
+      javaBuildTools: ['gradle', 'maven'],
+
       nodeVersions: ['v5', 'v4', 'v0.12', 'v0.10'],
 
       nodeDefault: 'v4',

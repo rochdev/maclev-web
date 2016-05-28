@@ -46,6 +46,7 @@
         brewFormulas: (presets[name].brewFormulas || []).slice(0),
         brewCasks: (presets[name].brewCasks || []).slice(0),
         javaVersions: (presets[name].javaVersions || []).slice(0),
+        javaBuildTools: (presets[name].javaBuildTools || []).slice(0),
         javaDefault: presets[name].javaDefault || null,
         nodeModules: (presets[name].nodeModules || []).slice(0),
         nodeVersions: (presets[name].nodeVersions || []).slice(0),
