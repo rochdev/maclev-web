@@ -18,7 +18,8 @@
         'atom',
         'sublime-text',
         'visual-studio-code',
-        'intellij-idea'
+        'intellij-idea',
+        'hyperterm'
       ],
 
       environments: [
