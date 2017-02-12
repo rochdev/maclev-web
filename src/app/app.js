@@ -20,7 +20,7 @@
     })
     .factory('api', function($location) {
       return {
-        url: $location.protocol() + '://api.' + $location.host()
+        url: 'https://gb8pqw2rtl.execute-api.us-east-1.amazonaws.com/prod'
       };
     })
     .run(function($rootScope, api) {
