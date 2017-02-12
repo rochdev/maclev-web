@@ -19,7 +19,7 @@
         'sublime-text',
         'visual-studio-code',
         'intellij-idea',
-        'hyperterm'
+        'hyper'
       ],
 
       environments: [

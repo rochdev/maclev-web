@@ -18,15 +18,13 @@ process.on('SIGTERM', function() {
 gulp.task('default', ['watch', 'serve']);
 
 gulp.task('watch', ['build'], function() {
-  var opts = {interval: 100, mode: 'poll'};
-
   watching = true;
 
-  gulp.watch(['src/index.html'], opts, ['index']);
-  gulp.watch(['src/content/**/*'], opts, ['assets']);
-  gulp.watch(['src/app/**/*.html'], opts, ['templates']);
-  gulp.watch(['src/app/**/*.sass', 'src/app/**/*.scss'], opts, ['styles']);
-  gulp.watch(['src/app/**/*.js'], opts, ['scripts']);
+  gulp.watch(['src/index.html'], ['index']);
+  gulp.watch(['src/content/**/*'], ['assets']);
+  gulp.watch(['src/app/**/*.html'], ['templates']);
+  gulp.watch(['src/app/**/*.sass', 'src/app/**/*.scss'], ['styles']);
+  gulp.watch(['src/app/**/*.js'], ['scripts']);
 });
 
 gulp.task('build', function(cb) {
@@ -107,7 +105,7 @@ gulp.task('serve', function() {
   app.use(vhost('*.maclev.local', proxy(options)));
   app.use(serveStatic('www'));
 
-  app.listen(80);
+  app.listen(3000);
 });
 
 // Helpers
